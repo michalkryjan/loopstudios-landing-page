@@ -1,0 +1,46 @@
+@mixin onlyForDevices($from, $to) {
+  $defaultDeviceSizes: (
+    mobile: none 480px,
+    tablet: 481px 768px,
+    laptop: 769px 1080px,
+    desktop-s: 1081px 1200px,
+    desktop-l: 1201px none,
+  );
+
+  $min-width: none;
+  $max-width: none;
+
+  @if map-has-key($defaultDeviceSizes, $from) {
+    $min-width: nth(map-get($defaultDeviceSizes, $from), 1);
+  } @else {
+    @error '"#{$from}" is not valid device for "onlyForDevices()" mixin';
+  }
+
+  @if map-has-key($defaultDeviceSizes, $to) {
+    $max-width: nth(map-get($defaultDeviceSizes, $to), 2);
+  } @else {
+    @error '"#{$to}" is not valid device for "onlyForDevices()" mixin';
+  }
+
+  @include customMediaQuery($min-width, $max-width) {
+    @content;
+  }
+}
+
+@mixin customMediaQuery($min-width: none, $max-width: none) {
+  @if $min-width != none {
+    @if $max-width != none {
+      @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+        @content;
+      }
+    } @else {
+      @media (min-width: #{$min-width}) {
+        @content;
+      }
+    }
+  } @else if $max-width != none {
+    @media (max-width: #{$max-width}) {
+      @content;
+    }
+  }
+}
