@@ -1,0 +1,21 @@
+@mixin columnFlexNoWrap($justify-content: unset, $align-items: unset) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin rowFlexNoWrap($justify-content: unset, $align-items: unset) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin defaultFlexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

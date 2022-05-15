@@ -1,0 +1,37 @@
+.about {
+    margin: 100px 0;
+    position: relative;
+    width: 100%;
+    max-width: 1220px;
+    height: 501px;
+    padding: 0 50px;
+    &__img {
+        z-index: 1;
+        position: absolute;
+    }
+    &__textWrapper {
+        z-index: 2;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: map-get($colors, white);
+        padding: 90px 10px 10px 90px;
+        max-width: 560px;
+        height: fit-content;
+    }
+    &__title {
+        font-family: map-get($fontFamilies, secondary);
+        color: map-get($colors, black);
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 48px;
+        margin-bottom: 10px;
+    }
+    &__copy {
+        font-family: map-get($fontFamilies, primary);
+        color: map-get($colors, veryDarkGray);
+        font-size: map-get($fontSizes, copy);
+        line-height: 25px;
+    }
+}
