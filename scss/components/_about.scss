@@ -9,6 +9,7 @@
     &__img {
         z-index: 1;
         position: absolute;
+        max-width: 100%;
         filter: brightness(0.85) contrast(1.25) saturate(1.15);
     }
     &__textWrapper {
