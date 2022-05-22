@@ -25,7 +25,10 @@ body * {
     align-items: center;
     flex-wrap: nowrap;
     background: #FFF;
-    padding: 0 50px;
+    padding: 0 90px;
+    @include forDevices(laptop) {
+        padding: 0 40px;
+    }
 }
 
 body a {
