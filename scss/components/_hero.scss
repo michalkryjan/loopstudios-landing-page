@@ -57,10 +57,17 @@
     height: fit-content;
     padding: 40px 40px 30px;
     @include defaultFlexCenter();
-    @include forDevices(mobile tablet) {
+    @include forDevices(mobile) {
+      width: 94%;
+      max-width: 340px;
+      font-size: 36px;
+      margin: auto;
+      padding: 40px 12px 36px;
+    }
+    @include forDevices(tablet) {
       width: 90%;
       max-width: 500px;
-      font-size: 50px;
+      font-size: 46px;
       margin: auto;
     }
     @include forDevices(laptop) {
@@ -80,13 +87,19 @@
 .topMenuBar {
   width: 100%;
   margin-top: 40px;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  z-index: 5;
   @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
   @include forDevices(mobile tablet) {
-      margin-top: 25px;
+    margin-top: 25px;
   }
   &__companyLogo {
-    margin: 5px 0 0;
-    margin-left: 40px;
+    @include forDevices(mobile tablet) {
+      margin: 0 0 0 20px;
+    }
+    @include forDevices(laptop desktop-all) {
+      margin: 5px 0 0 40px;
+    }
   }
 }

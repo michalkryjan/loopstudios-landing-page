@@ -1,29 +1,62 @@
 .footer {
     width: 100%;
-    height: 160px;
     background: map-get($colors, black);
     @include defaultFlexCenter();
+    @include forDevices(mobile tablet) {
+        height: fit-content;
+    }
+    @include forDevices(laptop desktop-all) {
+        height: 160px;
+    }
     &__contentWrapper {
         width: 100%;
         max-width: 1440px;
         height: 100%;
-        @include columnFlexNoWrap();
-        padding: 30px 90px;
+        @include forDevices(mobile tablet) {
+            padding: 30px 10px;
+            @include columnFlexNoWrap();
+        }
         @include forDevices(laptop) {
             padding: 30px 40px;
         }
+        @include forDevices(desktop-all) {
+            padding: 38px 90px;
+        }
+        @include forDevices(laptop desktop-all) {
+            @include rowFlexNoWrap();
+        }
     }
-    &__line {
-        @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
+    &__info {
         flex-basis: 50%;
+        @include forDevices(mobile tablet) {
+            @include columnFlexNoWrap($align-items: center);
+            flex-basis: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+        @include forDevices(laptop desktop-all) {
+            @include columnFlexNoWrap($justify-content: space-between);
+            &--1 {
+                align-items: flex-start;
+            }
+            &--2 {
+                align-items: flex-end;
+            }
+        }
     }
     &__companyLogo {
         width: 150px;
         height: auto;
+        @include forDevices(mobile tablet) {
+            margin-bottom: 25px;
+        }
     }
     &__socialsWrapper {
         @include rowFlexNoWrap();
         list-style-type: none;
+        @include forDevices(mobile tablet) {
+            margin: 10px 0 0;
+        }
         .social {
             margin: 3px;
             padding: 7px;
@@ -33,6 +66,7 @@
         font-family: map-get($fontFamilies, primary);
         color: map-get($colors, veryDarkGray);
         font-size: 15px;
-        line-height: 15px;
+        line-height: 17px;
+        padding: 10px 0;
     }
 }

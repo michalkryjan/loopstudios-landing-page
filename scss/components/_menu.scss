@@ -1,10 +1,6 @@
 .menu {
   &__list {
     list-style-type: none;
-    @include forDevices(mobile tablet) {
-      @include columnFlexNoWrap($justify-content: space-between);
-      display: none;
-    }
     @include forDevices(laptop desktop-all) {
       @include rowFlexNoWrap();
     }
@@ -20,6 +16,12 @@
     @include forDevices(mobile tablet laptop) {
       margin: 0 15px 0 auto;
     }
+    .menu__list {
+      @include forDevices(mobile tablet) {
+        @include columnFlexNoWrap($justify-content: space-between);
+        display: none;
+      }
+    }
     .menu__item {
       padding: 10px;
       margin: 0 10px;
@@ -29,7 +31,9 @@
     }
   }
   &--footer {
-    margin-left: -15px;
+    @include forDevices(laptop desktop-all) {
+      margin-left: -15px;
+    }
     .menu__item {
       padding: 10px 5px;
       margin: 0 8px;
