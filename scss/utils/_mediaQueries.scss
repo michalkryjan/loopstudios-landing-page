@@ -1,0 +1,25 @@
+$mediaQueries : (
+    'mobile'    : "only screen and (max-width: 480px)",
+    'tablet'    : "only screen and (min-width: 481px) and (max-width: 750px)",
+    'laptop'   : "only screen and (min-width: 751px) and (max-width: 1080px)",
+    'desktop'   : "only screen and (min-width: 1081px)",
+    'retina2'   : "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)",
+    'retina3'   : "only screen and (-webkit-min-device-pixel-ratio: 3) and (min-resolution: 288dpi)",
+    'landscape' : "screen and (orientation:landscape)",    
+    'portrait'  : "screen and (orientation:portrait)"
+);
+
+@mixin forDevices($devices) {
+    $conditions : ();
+    @each $device in $devices {
+        $conditions: append(
+            $conditions,
+            #{inspect(map-get($media_queries, $breakpoint))},
+        );
+    }
+
+    @media #{$conditions} {
+        @content;
+    }
+
+}
