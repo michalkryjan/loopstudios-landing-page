@@ -1,8 +1,11 @@
 $mediaQueries : (
     'mobile'    : "only screen and (max-width: 480px)",
-    'tablet'    : "only screen and (min-width: 481px) and (max-width: 750px)",
-    'laptop'   : "only screen and (min-width: 751px) and (max-width: 1080px)",
-    'desktop'   : "only screen and (min-width: 1081px)",
+    'tablet'    : "only screen and (min-width: 481px) and (max-width: 768px)",
+    'laptop'   : "only screen and (min-width: 769px) and (max-width: 1080px)",
+    'desktop-all'   : "only screen and (min-width: 1081px)",
+    'desktop-s'   : "only screen and (min-width: 1081px) and (max-width: 1200px)",
+    'desktop-l'   : "only screen and (min-width: 1201px) and (max-width: 1440px)",
+    'desktop-xl'   : "only screen and (min-width: 1441px)",
     'retina2'   : "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)",
     'retina3'   : "only screen and (-webkit-min-device-pixel-ratio: 3) and (min-resolution: 288dpi)",
     'landscape' : "screen and (orientation:landscape)",    
@@ -14,12 +17,30 @@ $mediaQueries : (
     @each $device in $devices {
         $conditions: append(
             $conditions,
-            #{inspect(map-get($media_queries, $breakpoint))},
+            #{inspect(map-get($mediaQueries, $device))},
+            comma
         );
     }
 
     @media #{$conditions} {
         @content;
     }
+}
 
+@mixin customMediaQuery($min-width: none, $max-width: none) {
+  @if $min-width != none {
+    @if $max-width != none {
+      @media only screen and (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: #{$min-width}) {
+        @content;
+      }
+    }
+  } @else if $max-width != none {
+    @media only screen and (max-width: #{$max-width}) {
+      @content;
+    }
+  }
 }
