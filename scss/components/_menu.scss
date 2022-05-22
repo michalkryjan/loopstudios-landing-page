@@ -1,0 +1,41 @@
+.menu {
+  &__list {
+    list-style-type: none;
+    @include forDevices(mobile tablet) {
+      @include columnFlexNoWrap($justify-content: space-between);
+      display: none;
+    }
+    @include forDevices(laptop desktop-all) {
+      @include rowFlexNoWrap();
+    }
+  }
+  &__link {
+    color: map-get($colors, white);
+    font-family: map-get($fontFamilies, primary);
+    font-weight: 400;
+  }
+
+  &--header {
+    margin: 0 60px 0 auto;
+    @include forDevices(mobile tablet laptop) {
+      margin: 0 30px 0 auto;
+    }
+    .menu__item {
+      padding: 10px;
+      margin: 0 10px;
+    }
+    .menu__link {
+      font-size: map-get($fontSizes, copy);
+    }
+  }
+  &--footer {
+    margin-left: -15px;
+    .menu__item {
+      padding: 10px 5px;
+      margin: 0 8px;
+    }
+    .menu__link {
+        font-size: 15px;
+    }
+  }
+}

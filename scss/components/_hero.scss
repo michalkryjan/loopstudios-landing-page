@@ -1,12 +1,12 @@
 .heroHeader {
   width: 100vw;
-  background-position: center;
   background-size: cover;
   position: relative;
   @include columnFlexNoWrap($align-items: center);
   &::before {
     content: "";
     position: absolute;
+    background-position: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -40,7 +40,7 @@
       max-width: 1440px;
       height: 100%;
       padding: 90px;
-      @include rowFlexNoWrap($justify-content: flex-start, $align-items: center)
+      @include rowFlexNoWrap($justify-content: flex-start, $align-items: center);
   }
   &__title {
     $selectedColor: map-get($colors, white);
@@ -83,32 +83,5 @@
   &__companyLogo {
     margin: 5px 0 0;
     margin-left: 40px;
-  }
-  .menu {
-    margin: 0 60px 0 auto;
-    @include forDevices(mobile tablet laptop) {
-      margin: 0 30px 0 auto;
-    }
-    
-    &__list {
-      list-style-type: none;
-      @include forDevices(mobile tablet) {
-        @include columnFlexNoWrap($justify-content: space-between);
-        display: none;
-      }
-      @include forDevices(laptop desktop-all) {
-        @include rowFlexNoWrap();
-      }
-    }
-    &__item {
-      padding: 10px;
-      margin: 0 10px;
-    }
-    &__link {
-      color: map-get($colors, white);
-      font-family: map-get($fontFamilies, primary);
-      font-size: map-get($fontSizes, copy);
-      font-weight: 400;
-    }
   }
 }

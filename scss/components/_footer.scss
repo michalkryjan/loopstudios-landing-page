@@ -1,0 +1,38 @@
+.footer {
+    width: 100vw;
+    height: 160px;
+    background: map-get($colors, black);
+    @include defaultFlexCenter();
+    &__contentWrapper {
+        width: 100%;
+        max-width: 1440px;
+        height: 100%;
+        @include columnFlexNoWrap();
+        padding: 30px 90px;
+        @include forDevices(laptop) {
+            padding: 30px 40px;
+        }
+    }
+    &__line {
+        @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
+        flex-basis: 50%;
+    }
+    &__companyLogo {
+        width: 150px;
+        height: auto;
+    }
+    &__socialsWrapper {
+        @include rowFlexNoWrap();
+        list-style-type: none;
+        .social {
+            margin: 3px;
+            padding: 7px;
+        }
+    }
+    &__copyright {
+        font-family: map-get($fontFamilies, primary);
+        color: map-get($colors, veryDarkGray);
+        font-size: 15px;
+        line-height: 15px;
+    }
+}
