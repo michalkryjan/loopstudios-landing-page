@@ -1,5 +1,5 @@
 .heroHeader {
-  width: 100vw;
+  width: 100%;
   background-size: cover;
   position: relative;
   @include columnFlexNoWrap($align-items: center);

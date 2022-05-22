@@ -14,7 +14,10 @@
     font-size: 48px;
     font-weight: 300;
     text-transform: uppercase;
-    @include forDevices(mobile tablet) {
+    @include forDevices(mobile) {
+      font-size: 32px;
+    }
+    @include forDevices(tablet) {
       font-size: 36px;
     }
   }
@@ -69,7 +72,7 @@
     }
     @include forDevices(tablet) {
       grid-template-columns: 100%;
-      grid-template-rows: repeat(8, 240px);
+      grid-template-rows: repeat(8, 200px);
       margin: 60px 0 80px 0;
     }
     @include forDevices(laptop) {
