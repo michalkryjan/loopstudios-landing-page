@@ -80,7 +80,7 @@
       max-width: 340px;
       font-size: 36px;
       margin: auto;
-      padding: 40px 12px 36px;
+      padding: 40px 12px 36px 16px;
     }
     @include forDevices(tablet) {
       width: 90%;
@@ -98,32 +98,6 @@
       width: fit-content;
       min-height: 226px;
       font-size: 72px;
-    }
-  }
-}
-
-.topMenuBar {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 5;
-  @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
-  @include forDevices(mobile) {
-    padding: 5px 5px 5px 15px;
-  }
-  @include forDevices(tablet) {
-    padding: 5px 10px 5px 20px;
-  }
-  @include forDevices(laptop desktop-s desktop-l) {
-    padding: 30px 10px 30px 25px;
-  }
-  @include forDevices(desktop-xl) {
-    padding: 30px 35px;
-  }
-  &__companyLogo {
-    margin: 6px 0 0 0;
-    @include forDevices(mobile tablet) {
-      max-width: 160px;
     }
   }
 }

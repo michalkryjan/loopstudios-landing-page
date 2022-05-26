@@ -3,6 +3,7 @@
     border: none;
     padding: 0;
     margin-left: auto;
+    z-index: 10;
     @include forDevices(mobile tablet) {
       display: flex;
     }
