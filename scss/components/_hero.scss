@@ -1,19 +1,19 @@
 @keyframes heroImgPulse {
-    0% {
-        filter: brightness(0.75) contrast(1.3) saturate(1.1);
-    }
-    25% {
-        filter: brightness(0.8) contrast(1.5) saturate(1.65);
-    }
-    50% {
-        filter: brightness(0.75) contrast(1.3) saturate(1.1);
-    }
-    75% {
-        filter: brightness(0.6) contrast(1.5) saturate(1.65);
-    }
-    100% {
-        filter: brightness(0.75) contrast(1.3) saturate(1.1);
-    }
+  0% {
+    filter: brightness(0.75) contrast(1.3) saturate(1.1);
+  }
+  25% {
+    filter: brightness(0.8) contrast(1.5) saturate(1.65);
+  }
+  50% {
+    filter: brightness(0.75) contrast(1.3) saturate(1.1);
+  }
+  75% {
+    filter: brightness(0.6) contrast(1.5) saturate(1.65);
+  }
+  100% {
+    filter: brightness(0.75) contrast(1.3) saturate(1.1);
+  }
 }
 
 .heroHeader {
@@ -29,7 +29,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    animation: heroImgPulse alternate-reverse 10s infinite;
+    animation: heroImgPulse 10s infinite;
     background-size: cover;
     @include forDevices(mobile tablet) {
       background-image: url("../../images/mobile/image-hero.jpg");
@@ -104,20 +104,26 @@
 
 .topMenuBar {
   width: 100%;
-  margin-top: 40px;
   position: fixed;
   top: 0;
   z-index: 5;
   @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
-  @include forDevices(mobile tablet) {
-    margin-top: 25px;
+  @include forDevices(mobile) {
+    padding: 5px 5px 5px 15px;
+  }
+  @include forDevices(tablet) {
+    padding: 5px 10px 5px 20px;
+  }
+  @include forDevices(laptop desktop-s desktop-l) {
+    padding: 30px 10px 30px 25px;
+  }
+  @include forDevices(desktop-xl) {
+    padding: 30px 35px;
   }
   &__companyLogo {
+    margin: 6px 0 0 0;
     @include forDevices(mobile tablet) {
-      margin: 0 0 0 20px;
-    }
-    @include forDevices(laptop desktop-all) {
-      margin: 5px 0 0 40px;
+      max-width: 160px;
     }
   }
 }
