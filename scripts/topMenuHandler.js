@@ -56,7 +56,7 @@ const topMenuHandlerMobile = () => {
         topMenu.style.right = '0';
     }
     else {
-        topMenu.style.right = '-100vw';
+        topMenu.style.right = '-100%';
     }
 }
 
