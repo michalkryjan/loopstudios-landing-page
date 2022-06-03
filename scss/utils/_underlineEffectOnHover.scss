@@ -1,0 +1,20 @@
+@mixin underlineEffectOnHover($lineWidth: 2em, $bottom: 0) {
+    @include forDevices(laptop desktop-all) {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 5;
+            width: 0%;
+            height: 1px;
+            bottom: $bottom;
+            background: map-get($colors, white);
+            transition: ease-in-out 0.2s;
+        }
+        &:hover::after {
+            width: $lineWidth;
+        }
+    }
+}

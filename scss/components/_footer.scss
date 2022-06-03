@@ -6,7 +6,7 @@
         height: fit-content;
     }
     @include forDevices(laptop desktop-all) {
-        height: 160px;
+        height: 200px;
     }
     &__contentWrapper {
         width: 100%;
@@ -20,7 +20,7 @@
             padding: 30px 40px;
         }
         @include forDevices(desktop-all) {
-            padding: 38px 90px;
+            padding: 30px 90px;
         }
         @include forDevices(laptop desktop-all) {
             @include rowFlexNoWrap();
@@ -28,6 +28,7 @@
     }
     &__info {
         flex-basis: 50%;
+        padding-top: 20px;
         @include forDevices(mobile tablet) {
             @include columnFlexNoWrap($align-items: center);
             flex-basis: 100%;
@@ -45,8 +46,9 @@
         }
     }
     &__companyLogo {
-        width: 150px;
-        height: auto;
+        width: auto;
+        height: 28px;
+        margin: 5px 0;
         @include forDevices(mobile tablet) {
             margin-bottom: 25px;
         }
@@ -55,11 +57,18 @@
         @include rowFlexNoWrap();
         list-style-type: none;
         @include forDevices(mobile tablet) {
-            margin: 10px 0 0;
+            margin: 10px 0;
         }
         .social {
-            margin: 3px;
-            padding: 7px;
+            margin: 0 3px;
+            width: 38px;
+            height: 38px;
+            &__link {
+                width: 100%;
+                height: 100%;
+                @include defaultFlexCenter();
+                @include underlineEffectOnHover($lineWidth: 1em, $bottom: -5px);
+            }
         }
     }
     &__copyright {
@@ -67,6 +76,6 @@
         color: map-get($colors, veryDarkGray);
         font-size: 15px;
         line-height: 17px;
-        padding: 10px 0;
+        padding: 22px 0;
     }
 }

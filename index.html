@@ -16,6 +16,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/pure-swipe-js@1.0.0/bundle.min.js"
+      crossorigin="anonymous"
+      ></script>
+    <script src="node_modules/pure-swipe/src/pure-swipe.js"></script>
     <title>Loopstudios</title>
   </head>
   <body>
@@ -28,9 +38,15 @@
         </h1>
         <button class="hamburger" aria-label="Main Menu">
           <svg viewBox="0 0 100 100">
-            <path class="hamburger__line hamburger__line--1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+            <path
+              class="hamburger__line hamburger__line--1"
+              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+            />
             <path class="hamburger__line hamburger__line--2" d="M 20,50 H 80" />
-            <path class="hamburger__line hamburger__line--3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+            <path
+              class="hamburger__line hamburger__line--3"
+              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+            />
           </svg>
         </button>
         <nav class="menu menu--header" aria-label="Main Menu">
@@ -87,28 +103,44 @@
         <article class="portfolio__content">
           <ul class="portfolio__creationsList">
             <li class="creation creation--img-1">
-              <h3 class="creation__title">Deep<br />earth</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">Deep<br />earth</h3>
+              </a>
             </li>
             <li class="creation creation--img-2">
-              <h3 class="creation__title">Night<br />arcade</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">Night<br />arcade</h3>
+              </a>
             </li>
             <li class="creation creation--img-3">
-              <h3 class="creation__title">Soccer<br />team&nbsp;VR</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">Soccer<br />team&nbsp;VR</h3>
+              </a>
             </li>
             <li class="creation creation--img-4">
-              <h3 class="creation__title">The<br />grid</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">The<br />grid</h3>
+              </a>
             </li>
             <li class="creation creation--img-5">
-              <h3 class="creation__title">From&nbsp;up<br />above&nbsp;VR</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">From&nbsp;up<br />above&nbsp;VR</h3>
+              </a>
             </li>
             <li class="creation creation--img-6">
-              <h3 class="creation__title">Pocket<br />borealis</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">Pocket<br />borealis</h3>
+              </a>
             </li>
             <li class="creation creation--img-7">
-              <h3 class="creation__title">The<br />curiosity</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">The<br />curiosity</h3>
+              </a>
             </li>
             <li class="creation creation--img-8">
-              <h3 class="creation__title">Make&nbsp;it<br />fisheye</h3>
+              <a class="creation__link" href="#">
+                <h3 class="creation__title">Make&nbsp;it<br />fisheye</h3>
+              </a>
             </li>
           </ul>
         </article>
@@ -141,7 +173,7 @@
         <div class="footer__info footer__info--2">
           <ul class="footer__socialsWrapper">
             <li class="social">
-              <a href="#" rel=”nofollow” target="_blank" class="social__link">
+              <a href="#" rel="”nofollow”" target="_blank" class="social__link">
                 <svg
                   width="24"
                   height="24"
@@ -157,7 +189,7 @@
               </a>
             </li>
             <li class="social">
-              <a href="#" rel=”nofollow” target="_blank" class="social__link">
+              <a href="#" rel="”nofollow”" target="_blank" class="social__link">
                 <svg
                   width="24"
                   height="20"
@@ -173,7 +205,7 @@
               </a>
             </li>
             <li class="social">
-              <a href="#" rel=”nofollow” target="_blank" class="social__link">
+              <a href="#" rel="”nofollow”" target="_blank" class="social__link">
                 <svg
                   width="24"
                   height="24"
@@ -189,7 +221,7 @@
               </a>
             </li>
             <li class="social">
-              <a href="#" rel=”nofollow” target="_blank" class="social__link">
+              <a href="#" rel="”nofollow”" target="_blank" class="social__link">
                 <svg
                   width="24"
                   height="24"

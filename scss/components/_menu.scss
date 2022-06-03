@@ -10,12 +10,13 @@
     font-family: map-get($fontFamilies, primary);
     font-weight: 400;
     text-shadow: #000 1px 1px 7px;
+    @include underlineEffectOnHover();
   }
 
   &--header {
     @include forDevices(mobile tablet) {
       position: fixed;
-      right: -100%;
+      right: -100vw;
       top: 0;
       transition: ease-in-out 0.4s;
       height: 100vh;
@@ -26,7 +27,7 @@
       @include defaultFlexCenter();
     }
     @include forDevices(laptop desktop-s desktop-l) {
-      margin: 0 15px 0 auto;
+      margin: 0 10px 0 auto;
     }
     @include forDevices(desktop-xl) {
       margin: 0 60px 0 auto;
@@ -37,54 +38,43 @@
       }
     }
     .menu__item {
-      padding: 10px;
       margin: 0 10px;
     }
     .menu__link {
       font-size: map-get($fontSizes, copy);
+      padding: 10px 15px;
+      @include forDevices(laptop) {
+        padding: 10px 12px;
+      }
     }
   }
 
   &--footer {
     @include forDevices(laptop desktop-all) {
-      margin-left: -15px;
-    }
-    .menu__item {
-      padding: 10px 5px;
-      margin: 0 8px;
+      padding-left: 4px;
     }
     .menu__link {
       font-size: 15px;
     }
-  }
-}
-
-
-.topMenuBar {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 3;
-  @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
-  @include forDevices(mobile) {
-    padding: 5px 5px 5px 15px;
-  }
-  @include forDevices(tablet) {
-    padding: 5px 10px 5px 20px;
-  }
-  @include forDevices(laptop desktop-s desktop-l) {
-    padding: 30px 10px 30px 25px;
-  }
-  @include forDevices(desktop-xl) {
-    padding: 30px 35px;
-  }
-  &__title {
-    z-index: 3;
-  }
-  &__companyLogo {
-    margin: 6px 0 0 0;
     @include forDevices(mobile tablet) {
-      max-width: 160px;
+      .menu__item {
+        margin: 0 8px;
+        padding: 10px 0;
+      }
+      .menu__link {
+        padding: 10px 25px;
+      }
+    }
+    @include forDevices(laptop desktop-all) {
+      margin-left: -15px;
+
+      .menu__item {
+        margin: 0 8px;
+        padding: 10px 0;
+      }
+      .menu__link {
+        padding: 10px 4px;
+      }
     }
   }
 }
