@@ -42,14 +42,12 @@
     height: 100vh;
     max-height: 1350px;
   }
-  @include forDevices(laptop desktop-s) {
-    height: 650px;
-  }
-  @include forDevices(desktop-l) {
-    height: 750px;
+  @include forDevices(laptop desktop-s desktop-l) {
+    height: 100vh;
   }
   @include forDevices(desktop-xl) {
-    height: 850px;
+    height: 1080px;
+    max-height: 100vh;
   }
 
   &__contentWrapper {
