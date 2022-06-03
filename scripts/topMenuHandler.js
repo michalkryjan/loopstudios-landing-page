@@ -1,23 +1,16 @@
-const hamburger = document.getElementsByClassName('hamburger')[0];
+const topMenu = $(".menu--header");
+const hamburger = $(".hamburger");
 
-hamburger.addEventListener('click', function() {
-    this.classList.toggle('opened');
-    let isOpened = this.classList.contains('opened');
-    this.setAttribute('aria-expanded', isOpened);
+const topMenuHandler = () => {
+    hamburger.toggleClass('opened');
+    let isOpened = hamburger.hasClass('opened');
+    hamburger.attr('aria-expanded', isOpened);
     if (isOpened) {
-        showMenu();
+        topMenu.css('right', '0');
     }
     else {
-        hideMenu();
+        topMenu.css('right', '-100vw');
     }
-});
-
-const topMenu = document.getElementsByClassName('menu--header')[0];
-
-const showMenu = () => {    
-    topMenu.style.right = '0%';
 }
 
-const hideMenu = () => {
-    topMenu.style.right = '-100%';
-}
+hamburger.on('click', topMenuHandler);

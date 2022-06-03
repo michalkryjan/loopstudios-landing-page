@@ -8,7 +8,7 @@
       padding: 5px 5px 5px 15px;
     }
     @include forDevices(tablet) {
-      padding: 5px 10px 5px 20px;
+      padding: 5px 5px 5px 20px;
     }
     @include forDevices(laptop desktop-s desktop-l) {
       padding: 20px 10px 20px 25px;
