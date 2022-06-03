@@ -3,10 +3,7 @@ body {
     height: fit-content;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    @include columnFlexNoWrap($justify-content: flex-start, $align-items: center);
 }
 
 body * {
@@ -19,11 +16,9 @@ body * {
     width: 100%;
     max-width: 1440px;
     height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
     background: #FFF;
+    @include columnFlexNoWrap($align-items: center);
+    
     @include forDevices(mobile) {
         padding: 0 10px;
     }

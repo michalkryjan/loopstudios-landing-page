@@ -114,7 +114,7 @@
         filter: brightness(0.7);
       }
       &:hover &__title {
-        color: #000;
+        color: invert(map-get($colors, white));
         text-shadow: none;
         font-weight: bold;
         transform: translateY(-10px);
