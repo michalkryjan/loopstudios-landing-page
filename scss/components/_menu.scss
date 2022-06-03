@@ -47,7 +47,7 @@
       padding: 10px 15px;
       @include forDevices(mobile tablet) {
         font-size: 17px;
-        height: 15vh;
+        padding: 15px 30px;
       }
       @include forDevices(laptop) {
         padding: 10px 12px;
