@@ -2,7 +2,7 @@
     width: 100%;
     @include forDevices(mobile tablet) {
         @include columnFlexNoWrap($align-items: center);
-        margin: 12vh 0 5vh;
+        margin: 10vh 0 5vh;
     }
     @include forDevices(laptop) {
         margin-bottom: 120px;
@@ -62,7 +62,7 @@
         font-weight: 300;
         margin-bottom: 25px;
         @include forDevices(mobile) {
-            font-size: 32px;
+            font-size: 30px;
             line-height: 36px;
         }
         @include forDevices(tablet) {

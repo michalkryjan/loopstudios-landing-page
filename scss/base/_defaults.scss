@@ -24,7 +24,10 @@ body * {
     align-items: center;
     flex-wrap: nowrap;
     background: #FFF;
-    @include forDevices(mobile tablet) {
+    @include forDevices(mobile) {
+        padding: 0 10px;
+    }
+    @include forDevices(tablet) {
         padding: 0 15px;
     }
     @include forDevices(laptop) {
