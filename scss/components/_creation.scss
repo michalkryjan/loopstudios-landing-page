@@ -110,7 +110,8 @@
         cursor: pointer;
       }
       &:hover::before {
-        opacity: 0.4;
+        opacity: 0.5;
+        filter: brightness(0.7);
       }
       &:hover &__title {
         color: #000;

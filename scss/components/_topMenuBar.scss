@@ -1,8 +1,10 @@
 .topMenuBar {
     width: 100%;
-    position: fixed;
-    top: 0;
     z-index: 3;
+    background: transparent;
+    position: fixed;
+    transform: translateY(0);
+    transition: ease-in-out 0.3s;
     @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
     @include forDevices(mobile) {
       padding: 5px 5px 5px 15px;
@@ -14,7 +16,7 @@
       padding: 20px 10px 20px 25px;
     }
     @include forDevices(desktop-xl) {
-      padding: 30px 35px;
+      padding: 25px 35px;
     }
     &__title {
       z-index: 3;
