@@ -16,14 +16,27 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
     <title>Loopstudios</title>
+    <script type="text/javascript" src="scripts/preloader.js"></script>
   </head>
   <body>
+    <div class="preloader" id="preloader">
+      <img class="preloader__logo" src="images/logo.svg" alt="" />
+      <svg class="preloader__svg">
+        <g>
+          <path d="M 50,100 A 1,1 0 0 1 50,0"/>
+        </g>
+        <g>
+          <path d="M 50,75 A 1,1 0 0 0 50,-25"/>
+        </g>
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#1221e4;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#d21bba;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
     <header id="start" class="heroHeader">
       <div class="topMenuBar">
         <h1 class="topMenuBar__title">
