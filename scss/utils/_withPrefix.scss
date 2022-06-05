@@ -1,0 +1,29 @@
+@mixin heightFitContent {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+@mixin filter($value: unset) {
+  -webkit-filter: $value;
+  filter: $value;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($value: unset) {
+  -webkit-animation: $value;
+  animation: $value;
+}
+
+@mixin animationDelay($value: unset) {
+  -webkit-animation-delay: $value;
+  animation-delay: $value;
+}
