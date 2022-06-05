@@ -1,42 +1,48 @@
+@use '../utils/mediaQueries'; 
+@use '../utils/positioning'; 
+@use '../utils/withPrefix';
+@use '../base/variables';
+@use '../utils/underlineEffectOnHover' as *;
+
 .footer {
     width: 100%;
-    background: map-get($colors, black);
-    @include defaultFlexCenter();
-    @include forDevices(mobile tablet) {
-        height: fit-content;
+    background: map-get(variables.$colors, black);
+    @include positioning.defaultFlexCenter;
+    @include mediaQueries.forDevices(mobile tablet) {
+        @include withPrefix.heightFitContent;
     }
-    @include forDevices(laptop desktop-all) {
+    @include mediaQueries.forDevices(laptop desktop-all) {
         height: 200px;
     }
     &__contentWrapper {
         width: 100%;
         max-width: 1440px;
         height: 100%;
-        @include forDevices(mobile tablet) {
+        @include mediaQueries.forDevices(mobile tablet) {
             padding: 30px 10px;
-            @include columnFlexNoWrap();
+            @include positioning.columnFlexNoWrap;
         }
-        @include forDevices(laptop) {
+        @include mediaQueries.forDevices(laptop) {
             padding: 30px 40px;
         }
-        @include forDevices(desktop-all) {
+        @include mediaQueries.forDevices(desktop-all) {
             padding: 30px 90px;
         }
-        @include forDevices(laptop desktop-all) {
-            @include rowFlexNoWrap();
+        @include mediaQueries.forDevices(laptop desktop-all) {
+            @include positioning.rowFlexNoWrap;
         }
     }
     &__info {
         flex-basis: 50%;
         padding-top: 20px;
-        @include forDevices(mobile tablet) {
-            @include columnFlexNoWrap($align-items: center);
+        @include mediaQueries.forDevices(mobile tablet) {
+            @include positioning.columnFlexNoWrap($align-items: center);
             flex-basis: 100%;
             text-align: center;
             padding: 10px 0;
         }
-        @include forDevices(laptop desktop-all) {
-            @include columnFlexNoWrap($justify-content: space-between);
+        @include mediaQueries.forDevices(laptop desktop-all) {
+            @include positioning.columnFlexNoWrap($justify-content: space-between);
             &--1 {
                 align-items: flex-start;
             }
@@ -49,14 +55,14 @@
         width: auto;
         height: 28px;
         margin: 5px 0;
-        @include forDevices(mobile tablet) {
+        @include mediaQueries.forDevices(mobile tablet) {
             margin-bottom: 25px;
         }
     }
     &__socialsWrapper {
-        @include rowFlexNoWrap();
         list-style-type: none;
-        @include forDevices(mobile tablet) {
+        @include positioning.rowFlexNoWrap;
+        @include mediaQueries.forDevices(mobile tablet) {
             margin: 10px 0;
         }
         .social {
@@ -66,14 +72,14 @@
             &__link {
                 width: 100%;
                 height: 100%;
-                @include defaultFlexCenter();
+                @include positioning.defaultFlexCenter;
                 @include underlineEffectOnHover($lineWidth: 1em, $bottom: -5px);
             }
         }
     }
     &__copyright {
-        font-family: map-get($fontFamilies, primary);
-        color: map-get($colors, veryDarkGray);
+        font-family: map-get(variables.$fontFamilies, primary);
+        color: map-get(variables.$colors, veryDarkGray);
         font-size: 15px;
         line-height: 17px;
         padding: 22px 0;

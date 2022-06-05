@@ -1,38 +1,47 @@
+
+@use "../utils/mediaQueries"; 
+@use "../utils/positioning"; 
+@use "../utils/withPrefix"; 
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    width: 100%;
-    height: fit-content;
-    margin: 0;
-    padding: 0;
-    @include columnFlexNoWrap($justify-content: flex-start, $align-items: center);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: fit-content;
+  @include positioning.columnFlexNoWrap($justify-content: flex-start, $align-items: center);
 }
 
 body * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .mainContent {
-    width: 100%;
-    max-width: 1440px;
-    height: fit-content;
-    background: #FFF;
-    @include columnFlexNoWrap($align-items: center);
-    
-    @include forDevices(mobile) {
-        padding: 0 10px;
-    }
-    @include forDevices(tablet) {
-        padding: 0 15px;
-    }
-    @include forDevices(laptop) {
-        padding: 0 40px;
-    }
-    @include forDevices(desktop-all) {
-        padding: 0 90px;
-    }
+  background: #fff;
+  width: 100%;
+  max-width: 1440px;
+  @include withPrefix.heightFitContent;
+  @include positioning.columnFlexNoWrap($align-items: center);
+
+  @include mediaQueries.forDevices(mobile) {
+    padding: 0 10px;
+  }
+  @include mediaQueries.forDevices(tablet) {
+    padding: 0 15px;
+  }
+  @include mediaQueries.forDevices(laptop) {
+    padding: 0 40px;
+  }
+  @include mediaQueries.forDevices(desktop-all) {
+    padding: 0 90px;
+  }
 }
 
 body a {
-    text-decoration: none;
+  text-decoration: none;
 }

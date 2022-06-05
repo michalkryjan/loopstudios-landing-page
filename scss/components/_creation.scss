@@ -1,123 +1,128 @@
+@use '../utils/mediaQueries'; 
+@use '../utils/positioning'; 
+@use '../utils/withPrefix'; 
+@use '../base/variables';
+
 .creation {
-    $transitionEffect: ease 0.5s;
-    position: relative;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      filter: brightness(0.75) contrast(1.15) saturate(1.2);
-      background-size: cover;
-      background-position: center;
-      transition: $transitionEffect;
+  $transitionEffect: ease 0.5s;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: $transitionEffect;
+    @include withPrefix.filter(brightness(0.75) contrast(1.15) saturate(1.2));
+  }
+  &__link {
+    width: 100%;
+    height: 100%;
+    @include positioning.columnFlexNoWrap($justify-content: flex-end, $align-items: center);
+  }
+  &__title {
+    width: 100%;
+    z-index: 2;
+    font-family: map-get(variables.$fontFamilies, secondary);
+    font-weight: 300;
+    text-transform: uppercase;
+    color: map-get(variables.$colors, white);
+    text-align: left;
+    text-shadow: #000 2px 2px 10px;
+    transition: $transitionEffect;
+    @include mediaQueries.forDevices(mobile) {
+      font-size: 28px;
+      line-height: 30px;
+      padding: 25px 10px 20px 20px;
     }
-    &__link {
-      width: 100%;
-      height: 100%;
-      @include columnFlexNoWrap($justify-content: flex-end, $align-items: center);
+    @include mediaQueries.forDevices(tablet) {
+      font-size: 32px;
+      line-height: 36px;
+      padding: 25px 10px 25px 30px;
     }
-    &__title {
-      width: 100%;
-      z-index: 2;
-      font-family: map-get($fontFamilies, secondary);
-      font-weight: 300;
-      text-transform: uppercase;
-      color: map-get($colors, white);
-      text-align: left;
-      text-shadow: #000 2px 2px 10px;
-      transition: $transitionEffect;
-      @include forDevices(mobile) {
-        font-size: 28px;
-        line-height: 30px;
-        padding: 25px 10px 20px 20px;
-      }
-      @include forDevices(tablet) {
-        font-size: 32px;
-        line-height: 36px;
-        padding: 25px 10px 25px 30px;
-      }
-      @include forDevices(laptop) {
-        font-size: 26px;
-        line-height: 30px;
-        padding: 25px 10px 25px 16px;
-      }
-      @include forDevices(desktop-s) {
-        font-size: 30px;
-        line-height: 32px;
-        padding: 25px 10px 25px 25px;
-      }
-      @include forDevices(desktop-l desktop-xl) {
-        font-size: 32px;
-        line-height: 36px;
-        padding: 30px 10px 25px 30px;
-      }
+    @include mediaQueries.forDevices(laptop) {
+      font-size: 26px;
+      line-height: 30px;
+      padding: 25px 10px 25px 16px;
     }
-    @include forDevices(mobile tablet) {
-      &--img-1::before {
-        background-image: url("../../images/mobile/image-deep-earth.jpg");
-      }
-      &--img-2::before {
-        background-image: url("../../images/mobile/image-night-arcade.jpg");
-      }
-      &--img-3::before {
-        background-image: url("../../images/mobile/image-soccer-team.jpg");
-      }
-      &--img-4::before {
-        background-image: url("../../images/mobile/image-grid.jpg");
-      }
-      &--img-5::before {
-        background-image: url("../../images/mobile/image-from-above.jpg");
-      }
-      &--img-6::before {
-        background-image: url("../../images/mobile/image-pocket-borealis.jpg");
-      }
-      &--img-7::before {
-        background-image: url("../../images/mobile/image-curiosity.jpg");
-      }
-      &--img-8::before {
-        background-image: url("../../images/mobile/image-fisheye.jpg");
-      }
+    @include mediaQueries.forDevices(desktop-s) {
+      font-size: 30px;
+      line-height: 32px;
+      padding: 25px 10px 25px 25px;
     }
-    @include forDevices(laptop desktop-all) {
-      &--img-1::before {
-        background-image: url("../../images/desktop/image-deep-earth.jpg");
-      }
-      &--img-2::before {
-        background-image: url("../../images/desktop/image-night-arcade.jpg");
-      }
-      &--img-3::before {
-        background-image: url("../../images/desktop/image-soccer-team.jpg");
-      }
-      &--img-4::before {
-        background-image: url("../../images/desktop/image-grid.jpg");
-      }
-      &--img-5::before {
-        background-image: url("../../images/desktop/image-from-above.jpg");
-      }
-      &--img-6::before {
-        background-image: url("../../images/desktop/image-pocket-borealis.jpg");
-      }
-      &--img-7::before {
-        background-image: url("../../images/desktop/image-curiosity.jpg");
-      }
-      &--img-8::before {
-        background-image: url("../../images/desktop/image-fisheye.jpg");
-      }
-      &:hover {
-        cursor: pointer;
-      }
-      &:hover::before {
-        opacity: 0.5;
-        filter: brightness(0.7);
-      }
-      &:hover &__title {
-        color: invert(map-get($colors, white));
-        text-shadow: none;
-        font-weight: bold;
-        transform: translateY(-10px);
-      }
+    @include mediaQueries.forDevices(desktop-l desktop-xl) {
+      font-size: 32px;
+      line-height: 36px;
+      padding: 30px 10px 25px 30px;
     }
   }
+  @include mediaQueries.forDevices(mobile tablet) {
+    &--img-1::before {
+      background-image: url("../../images/mobile/image-deep-earth.jpg");
+    }
+    &--img-2::before {
+      background-image: url("../../images/mobile/image-night-arcade.jpg");
+    }
+    &--img-3::before {
+      background-image: url("../../images/mobile/image-soccer-team.jpg");
+    }
+    &--img-4::before {
+      background-image: url("../../images/mobile/image-grid.jpg");
+    }
+    &--img-5::before {
+      background-image: url("../../images/mobile/image-from-above.jpg");
+    }
+    &--img-6::before {
+      background-image: url("../../images/mobile/image-pocket-borealis.jpg");
+    }
+    &--img-7::before {
+      background-image: url("../../images/mobile/image-curiosity.jpg");
+    }
+    &--img-8::before {
+      background-image: url("../../images/mobile/image-fisheye.jpg");
+    }
+  }
+  @include mediaQueries.forDevices(laptop desktop-all) {
+    &--img-1::before {
+      background-image: url("../../images/desktop/image-deep-earth.jpg");
+    }
+    &--img-2::before {
+      background-image: url("../../images/desktop/image-night-arcade.jpg");
+    }
+    &--img-3::before {
+      background-image: url("../../images/desktop/image-soccer-team.jpg");
+    }
+    &--img-4::before {
+      background-image: url("../../images/desktop/image-grid.jpg");
+    }
+    &--img-5::before {
+      background-image: url("../../images/desktop/image-from-above.jpg");
+    }
+    &--img-6::before {
+      background-image: url("../../images/desktop/image-pocket-borealis.jpg");
+    }
+    &--img-7::before {
+      background-image: url("../../images/desktop/image-curiosity.jpg");
+    }
+    &--img-8::before {
+      background-image: url("../../images/desktop/image-fisheye.jpg");
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover::before {
+      opacity: 0.5;
+      @include withPrefix.filter(brightness(0.7));
+    }
+    &:hover &__title {
+      color: invert(map-get(variables.$colors, white));
+      text-shadow: none;
+      font-weight: bold;
+      transform: translateY(-10px);
+    }
+  }
+}

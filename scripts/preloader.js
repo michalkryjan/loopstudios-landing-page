@@ -13,6 +13,6 @@ document.onreadystatechange = setTimeout(() => {
         document.querySelector("body").style.visibility = "visible";
         setTimeout(function() {
             preloader.remove();
-        }, 2500);
+        }, 2000);
     }
 }, 1200)

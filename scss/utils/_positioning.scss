@@ -14,7 +14,7 @@
     align-items: $align-items;
 }
 
-@mixin defaultFlexCenter() {
+@mixin defaultFlexCenter {
     display: flex;
     justify-content: center;
     align-items: center;

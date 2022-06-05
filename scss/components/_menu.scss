@@ -1,20 +1,25 @@
+@use '../utils/mediaQueries'; 
+@use '../utils/positioning'; 
+@use '../base/variables';
+@use '../utils/underlineEffectOnHover' as *;
+
 .menu {
   &__list {
     list-style-type: none;
-    @include forDevices(laptop desktop-all) {
-      @include rowFlexNoWrap();
+    @include mediaQueries.forDevices(laptop desktop-all) {
+      @include positioning.rowFlexNoWrap;
     }
   }
   &__link {
-    color: map-get($colors, white);
-    font-family: map-get($fontFamilies, primary);
+    color: map-get(variables.$colors, white);
+    font-family: map-get(variables.$fontFamilies, primary);
     font-weight: 400;
     text-shadow: #000 1px 1px 7px;
-    @include underlineEffectOnHover();
+    @include underlineEffectOnHover;
   }
 
   &--header {
-    @include forDevices(mobile tablet) {
+    @include mediaQueries.forDevices(mobile tablet) {
       position: fixed;
       right: -100vw;
       top: 0;
@@ -24,17 +29,17 @@
       background: #000;
       z-index: 1;
       padding-top: 60px;
-      @include defaultFlexCenter();
+      @include positioning.defaultFlexCenter;
     }
-    @include forDevices(laptop desktop-s desktop-l) {
+    @include mediaQueries.forDevices(laptop desktop-s desktop-l) {
       margin: 0 10px 0 auto;
     }
-    @include forDevices(desktop-xl) {
+    @include mediaQueries.forDevices(desktop-xl) {
       margin: 0 60px 0 auto;
     }
     .menu__list {
-      @include forDevices(mobile tablet) {
-        @include columnFlexNoWrap($justify-content: space-between);
+      @include mediaQueries.forDevices(mobile tablet) {
+        @include positioning.columnFlexNoWrap($justify-content: space-between);
         max-height: 340px;
         height: 55vh;
         text-align: center;
@@ -45,27 +50,27 @@
     }
     .menu__link {
       padding: 10px 15px;
-      @include forDevices(mobile tablet) {
+      @include mediaQueries.forDevices(mobile tablet) {
         font-size: 17px;
         padding: 15px 30px;
       }
-      @include forDevices(laptop) {
+      @include mediaQueries.forDevices(laptop) {
         padding: 10px 12px;
       }
-      @include forDevices(laptop desktop-all) {
-        font-size: map-get($fontSizes, copy);
+      @include mediaQueries.forDevices(laptop desktop-all) {
+        font-size: map-get(variables.$fontSizes, copy);
       }
     }
   }
 
   &--footer {
-    @include forDevices(laptop desktop-all) {
+    @include mediaQueries.forDevices(laptop desktop-all) {
       padding-left: 4px;
     }
     .menu__link {
       font-size: 15px;
     }
-    @include forDevices(mobile tablet) {
+    @include mediaQueries.forDevices(mobile tablet) {
       .menu__item {
         margin: 0 8px;
         padding: 10px 0;
@@ -74,7 +79,7 @@
         padding: 10px 25px;
       }
     }
-    @include forDevices(laptop desktop-all) {
+    @include mediaQueries.forDevices(laptop desktop-all) {
       margin-left: -15px;
 
       .menu__item {

@@ -1,3 +1,6 @@
+@use '../utils/mediaQueries'; 
+@use '../utils/positioning'; 
+
 .topMenuBar {
     width: 100%;
     z-index: 3;
@@ -5,17 +8,17 @@
     position: fixed;
     transform: translateY(0);
     transition: ease-in-out 0.5s;
-    @include rowFlexNoWrap($justify-content: space-between, $align-items: center);
-    @include forDevices(mobile) {
+    @include positioning.rowFlexNoWrap($justify-content: space-between, $align-items: center);
+    @include mediaQueries.forDevices(mobile) {
       padding: 5px 5px 5px 15px;
     }
-    @include forDevices(tablet) {
+    @include mediaQueries.forDevices(tablet) {
       padding: 5px 5px 5px 20px;
     }
-    @include forDevices(laptop desktop-s desktop-l) {
+    @include mediaQueries.forDevices(laptop desktop-s desktop-l) {
       padding: 20px 10px 20px 25px;
     }
-    @include forDevices(desktop-xl) {
+    @include mediaQueries.forDevices(desktop-xl) {
       padding: 25px 35px;
     }
     &__title {
@@ -25,7 +28,7 @@
       font-size: unset;
     }
     &__companyLogo {
-      @include forDevices(mobile tablet) {
+      @include mediaQueries.forDevices(mobile tablet) {
         max-width: 160px;
       }
     }

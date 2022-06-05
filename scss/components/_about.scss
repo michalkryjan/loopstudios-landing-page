@@ -1,91 +1,97 @@
+@use '../utils/mediaQueries'; 
+@use '../utils/positioning'; 
+@use '../utils/withPrefix'; 
+@use '../base/variables';
+
 .about {
     width: 100%;
-    @include forDevices(mobile tablet) {
-        @include columnFlexNoWrap($align-items: center);
+    @include mediaQueries.forDevices(mobile tablet) {
+        @include positioning.columnFlexNoWrap($align-items: center);
         margin: 10vh 0 5vh;
     }
-    @include forDevices(laptop) {
+    @include mediaQueries.forDevices(laptop) {
         margin-bottom: 120px;
     }
-    @include forDevices(laptop desktop-all) {
+    @include mediaQueries.forDevices(laptop desktop-all) {
         height: 501px;
         margin: 100px 0;
         position: relative;
     }
     &__img {
         max-width: 100%;
-        filter: brightness(0.85) contrast(1.25) saturate(1.15);
-        @include forDevices(mobile tablet) {
+        @include withPrefix.filter(brightness(0.85) contrast(1.25) saturate(1.15));
+
+        @include mediaQueries.forDevices(mobile tablet) {
             margin-bottom: 40px;
         }
-        @include forDevices(laptop desktop-all) {
+        @include mediaQueries.forDevices(laptop desktop-all) {
             z-index: 1;
             position: absolute;
         }
     }
     &__textWrapper {
-        height: fit-content;
-        @include forDevices(mobile tablet) {
+        @include withPrefix.heightFitContent;
+        @include mediaQueries.forDevices(mobile tablet) {
             padding: 20px;
             text-align: center;
             max-width: 550px;
         }
-        @include forDevices(laptop desktop-all) {
+        @include mediaQueries.forDevices(laptop desktop-all) {
             position: absolute;
             z-index: 2;
             right: 0;
             bottom: 0;
-            background: map-get($colors, white);
+            background: map-get(variables.$colors, white);
         }
-        @include forDevices(laptop) {
+        @include mediaQueries.forDevices(laptop) {
             bottom: -60px;
             padding: 60px 0 0 60px;
             max-width: 460px;
         }
-        @include forDevices(desktop-s) {
+        @include mediaQueries.forDevices(desktop-s) {
             padding: 60px 0 0 60px;
             max-width: 460px;
         }
-        @include forDevices(desktop-l) {
+        @include mediaQueries.forDevices(desktop-l) {
             padding: 75px 10px 0 75px;
             max-width: 600px;
         }
-        @include forDevices(desktop-xl) {
+        @include mediaQueries.forDevices(desktop-xl) {
             padding: 100px 10px 0 100px;
             max-width: 650px;
         }
     }
     &__title {
-        font-family: map-get($fontFamilies, secondary);
-        color: map-get($colors, black);
+        font-family: map-get(variables.$fontFamilies, secondary);
+        color: map-get(variables.$colors, black);
         text-transform: uppercase;
         font-weight: 300;
         margin-bottom: 25px;
-        @include forDevices(mobile) {
+        @include mediaQueries.forDevices(mobile) {
             font-size: 30px;
             line-height: 36px;
         }
-        @include forDevices(tablet) {
+        @include mediaQueries.forDevices(tablet) {
             font-size: 36px;
             line-height: 40px;
         }
-        @include forDevices(laptop desktop-s) {
+        @include mediaQueries.forDevices(laptop desktop-s) {
             font-size: 40px;
             line-height: 44px;
         }
-        @include forDevices(desktop-l) {
+        @include mediaQueries.forDevices(desktop-l) {
             font-size: 44px;
             line-height: 48px;
         }
-        @include forDevices(desktop-xl) {
+        @include mediaQueries.forDevices(desktop-xl) {
             font-size: 48px;
             line-height: 48px;
         }
     }
     &__copy {
-        font-family: map-get($fontFamilies, primary);
-        color: map-get($colors, veryDarkGray);
-        font-size: map-get($fontSizes, copy);
+        font-family: map-get(variables.$fontFamilies, primary);
+        color: map-get(variables.$colors, veryDarkGray);
+        font-size: map-get(variables.$fontSizes, copy);
         line-height: 25px;
     }
 }

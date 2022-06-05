@@ -1,11 +1,4 @@
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@use '../utils/withPrefix'; 
 
 .toSlowFadeIn {
   opacity: 0;
@@ -15,8 +8,17 @@
 }
 
 .toFastFadeIn {
-    opacity: 0;
-    &.fadeIn {
-      animation: fade-in 2s forwards;
-    }
+  opacity: 0;
+  &.fadeIn {
+    animation: fade-in 2s forwards;
   }
+}
+
+@include withPrefix.keyframes(fade-in) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
