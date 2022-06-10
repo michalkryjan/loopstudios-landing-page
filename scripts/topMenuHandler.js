@@ -5,7 +5,7 @@ const swipedetect = (el, callback) => {
     startY,
     distX,
     distY,
-    threshold = 80,
+    threshold = 60,
     restraint = 100,
     allowedTime = 1000,
     elapsedTime,
@@ -65,11 +65,7 @@ const topMenuHandlerMobile = () => {
   hamburger.classList.toggle("opened");
   let isOpened = hamburger.classList.contains("opened");
   hamburger.setAttribute("aria-expanded", isOpened);
-  if (isOpened) {
-    topMenu.style.right = "0";
-  } else {
-    topMenu.style.right = "-100vw";
-  }
+  topMenu.classList.toggle("opened")
 };
 
 hamburger.addEventListener("click", topMenuHandlerMobile, false);
@@ -85,14 +81,15 @@ if (window.innerWidth <= 768) {
 const menuBar = document.getElementsByClassName("topMenuBar")[0];
 
 window.onscroll = (e) => {
-  if (this.oldScroll < this.scrollY) {
+  if (window.pageYOffset < 1) {
+    menuBar.style.background = "transparent";
+    menuBar.style.transform = "translateY(0)";
+  }
+  else if (this.oldScroll < this.scrollY) {
     menuBar.style.transform = "translateY(-100%)";
   } else if (this.oldScroll > this.scrollY) {
     menuBar.style.transform = "translateY(0)";
     menuBar.style.background = "#000";
   }
   this.oldScroll = this.scrollY;
-  if (window.pageYOffset == 0) {
-    menuBar.style.background = "transparent";
-  }
 };

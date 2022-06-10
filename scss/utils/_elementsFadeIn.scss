@@ -1,16 +1,23 @@
+@use '../utils/mediaQueries';
 @use '../utils/withPrefix'; 
 
 .toSlowFadeIn {
   opacity: 0;
+  @include mediaQueries.forDevices(mobile tablet) {
+    transform: translateY(30px);
+  }
   &.fadeIn {
-    animation: fade-in 3s forwards;
+    animation: fade-in 1.5s forwards;
   }
 }
 
 .toFastFadeIn {
   opacity: 0;
+  @include mediaQueries.forDevices(mobile tablet) {
+    transform: translateY(30px);
+  }
   &.fadeIn {
-    animation: fade-in 2s forwards;
+    animation: fade-in 1s forwards;
   }
 }
 
@@ -20,5 +27,6 @@
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }

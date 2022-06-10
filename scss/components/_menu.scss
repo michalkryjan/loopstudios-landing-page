@@ -28,8 +28,11 @@
       width: 100%;
       background: #000;
       z-index: 1;
-      padding-top: 60px;
+      padding-block: 60px;
       @include positioning.defaultFlexCenter;
+      &.opened {
+        right: 0;
+      }
     }
     @include mediaQueries.forDevices(laptop desktop-s desktop-l) {
       margin: 0 10px 0 auto;

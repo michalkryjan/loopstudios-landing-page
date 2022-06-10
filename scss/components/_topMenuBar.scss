@@ -5,7 +5,7 @@
     width: 100%;
     z-index: 3;
     background: transparent;
-    position: fixed;
+    position: absolute;
     transform: translateY(0);
     transition: ease-in-out 0.5s;
     @include positioning.rowFlexNoWrap($justify-content: space-between, $align-items: center);
@@ -30,6 +30,7 @@
     &__companyLogo {
       @include mediaQueries.forDevices(mobile tablet) {
         max-width: 160px;
+        margin-top: 5px;
       }
     }
   }
